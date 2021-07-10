@@ -1,28 +1,29 @@
 .main-nav {
-    padding-left: 40px;
-    min-height: 70px;
+  padding-left: 40px;
+  min-height: 70px;
 }
 
-.nav-logo-text, .nav-logo-text:hover {
-    color: #FFF;
+.nav-logo-text,
+.nav-logo-text:hover {
+  color: #fff;
 }
 
 .main-menu {
-    display: flex;
-    font-size: 18px;
-    width: 380px;
-    justify-content: space-between;
+  display: flex;
+  font-size: 18px;
+  width: 380px;
+  justify-content: space-between;
 }
 
 .main-menu a {
-    color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .main-menu a:hover {
-    color: rgba(255, 255, 255);
+  color: rgba(255, 255, 255);
 }
 
 .main-menu a.active {
-    color: rgba(255, 255, 255);
-    font-weight: bold;
+  color: rgba(255, 255, 255);
+  font-weight: bold;
 }
