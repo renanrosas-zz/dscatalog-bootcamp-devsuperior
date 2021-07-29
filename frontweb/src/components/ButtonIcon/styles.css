@@ -20,10 +20,15 @@
 }
 
 .btn-container button {
+    width: calc(100% - 50px);
     border-radius: 10px 0 0 10px;
 }
 
 @media (min-width: 576px){
+
+    .btn-container button {
+        width: calc(100% - 50px);
+    }
 
     .btn-icon-container {
         width: 70px;
