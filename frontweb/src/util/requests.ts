@@ -5,9 +5,9 @@ import jwtDecode from 'jwt-decode';
 
 type Role = 'ROLE_OPERATOR' | 'ROLE_ADMIN';
 
-type TokenData = {
+export type TokenData = {
   exp: number;
-  username: string;
+  user_name: string;
   authorities: Role[];
 }
 
@@ -71,6 +71,10 @@ export const getAuthData = () => {
   const str = localStorage.getItem(tokeyKey) ?? '{}';
   return JSON.parse(str) as LoginResponse;
 };
+
+export const removeAuthData = () => {
+  localStorage.removeItem(tokeyKey);
+}
 
 export const getTokenData = () : TokenData | undefined => {
 
