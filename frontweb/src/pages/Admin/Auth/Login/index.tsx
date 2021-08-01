@@ -18,7 +18,7 @@ type LocationState = {
 const Login = () => {
 
   const location = useLocation<LocationState>();
-  
+
   const { from } = location.state || { from: { pathname: '/admin' } };
 
   const { setAuthContextData } = useContext(AuthContext);
@@ -26,7 +26,7 @@ const Login = () => {
 
   const [hasError, setHasError] = useState(false)
 
-  const { register, handleSubmit, formState: {errors} } = useForm<FormData>();
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
   const history = useHistory();
 
@@ -65,7 +65,7 @@ const Login = () => {
               }
             })}
             type="text"
-            className={`form-control base-input ${errors.username ? 'is-invalid': ''}`}
+            className={`form-control base-input ${errors.username ? 'is-invalid' : ''}`}
             placeholder="Email"
             name="username"
           />
@@ -77,7 +77,7 @@ const Login = () => {
               required: 'Campo obrigatório'
             })}
             type="password"
-            className={`form-control base-input ${errors.password ? 'is-invalid': ''}`}
+            className={`form-control base-input ${errors.password ? 'is-invalid' : ''}`}
             placeholder="Password"
             name="password"
           />
