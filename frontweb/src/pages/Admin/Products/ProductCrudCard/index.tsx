@@ -23,8 +23,15 @@ const ProductCrudCard = ({ product }: Props) => {
                     {product.categories.map(category => (
                         <CategoryBadge name={category.name} key={category.id} />
                     ))}
-
                 </div>
+            </div>
+            <div className="product-crud-buttons-container">
+                <button className="btn btn-outline-danger product-crud-button product-crud-button-first">
+                        EXCLUIR
+                </button>
+                <button className="btn btn-outline-secondary product-crud-button">
+                        EDITAR
+                </button>
             </div>
         </div>
     );
