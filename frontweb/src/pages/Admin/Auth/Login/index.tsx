@@ -9,13 +9,13 @@ import { saveAuthData } from 'util/storage';
 import { getTokenData } from 'util/auth';
 
 type FormData = {
-  username: string,
-  password: string
+  username: string;
+  password: string;
 };
 
 type LocationState = {
-  from: string
-}
+  from: string;
+};
 
 const Login = () => {
 
@@ -80,7 +80,7 @@ const Login = () => {
             })}
             type="password"
             className={`form-control base-input ${errors.password ? 'is-invalid' : ''}`}
-            placeholder="Password"
+            placeholder="Senha"
             name="password"
           />
           <div className="invalid-feedback d-block">{errors.password?.message}</div>

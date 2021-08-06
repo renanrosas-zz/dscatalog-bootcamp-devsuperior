@@ -10,8 +10,8 @@ const CLIENT_ID = process.env.REACT_APP_CLIENT_ID ?? 'dscatalog';
 const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET ?? 'dscatalog123';
 
 type LoginData = {
-  username: string,
-  password: string,
+  username: string;
+  password: string;
 };
 
 export const requestBackendLogin = (loginData: LoginData) => {
@@ -22,7 +22,7 @@ export const requestBackendLogin = (loginData: LoginData) => {
 
   const data = qs.stringify({
     ...loginData,
-    grant_type: 'password'
+    grant_type: 'password',
   });
 
   return axios({
@@ -30,8 +30,8 @@ export const requestBackendLogin = (loginData: LoginData) => {
     baseURL: BASE_URL,
     url: '/oauth/token',
     data,
-    headers
-  })
+    headers,
+  });
 };
 
 export const requestBackend = (config: AxiosRequestConfig) => {
