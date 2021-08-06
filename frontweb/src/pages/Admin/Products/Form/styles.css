@@ -1,0 +1,9 @@
+.product-crud-form-card {
+  padding: 20px;
+}
+
+.product-crud-form-card h1 {
+  font-size: 22px;
+  letter-spacing: -0.015em;
+  color: #263238;
+}
