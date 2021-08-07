@@ -6,4 +6,46 @@
   font-size: 22px;
   letter-spacing: -0.015em;
   color: #263238;
+  margin-bottom: 30px;
+}
+
+.margin-bottom-30 {
+    margin-bottom: 30px;
+}
+
+.product-crud-inputs-container{
+    margin-bottom: 30px;
+}
+
+.product-crud-inputs-left {
+    margin-bottom: 30px;
+}
+
+.product-crud-form-buttons-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-form-btn {
+    height: 50px;
+    width: 110px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+@media (min-width: 576px) {
+    .product-crud-form-buttons-container {
+        justify-content: flex-end;
+    }
+
+    .product-form-btn {
+        margin-left: 30px;
+        width: 270px;
+    }
+}
+
+@media (min-width: 992px) {
+    .product-crud-inputs-left {
+        margin-bottom: 0;
+    }
 }
