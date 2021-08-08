@@ -1,5 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 import { useEffect, useState } from 'react';
+import CurrencyInput from 'react-currency-input-field';
 import { useForm, Controller } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router-dom';
 import Select from 'react-select';
@@ -47,10 +48,12 @@ const Form = () => {
 
     const onSubmit = (formData: Product) => {
 
+        const data = {...formData, price: String(formData.price).replace(',', '.')}
+
         const config: AxiosRequestConfig = {
             method: isEditing ? 'PUT' : 'POST',
             url: isEditing ? `/products/${productId}` : "/products",
-            data: formData,
+            data,
             withCredentials: true
         };
 
@@ -105,17 +108,23 @@ const Form = () => {
                             </div>
 
                             <div className="margin-bottom-30 ">
-                                <input
-                                    {...register("price", {
-                                        required: 'Campo obrigatório',
-                                    })}
-                                    type="text"
-                                    className={`form-control base-input ${errors.price ? 'is-invalid' : ''}`}
-                                    placeholder="Preço"
+                                <Controller
                                     name="price"
+                                    rules={{required: 'Campo obrigatório'}}
+                                    control={control}
+                                    render={({ field }) => (
+                                        <CurrencyInput
+                                            placeholder="Preço"
+                                            className={`form-control base-input ${errors.price ? 'is-invalid' : ''}`}
+                                            disableGroupSeparators={true}
+                                            value={field.value}
+                                            onValueChange={field.onChange}
+                                        />
+                                    )}
                                 />
                                 <div className="invalid-feedback d-block">{errors.price?.message}</div>
                             </div>
+
                             <div className="margin-bottom-30 ">
                                 <input
                                     {...register("imgUrl", {
