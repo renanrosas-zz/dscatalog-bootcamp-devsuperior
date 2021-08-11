@@ -1,5 +1,5 @@
 .product-crud-container {
-    max-width: 980px;
+  max-width: 980px;
 }
 
 .btn-crud-add {
@@ -12,25 +12,14 @@
   margin-bottom: 20px;
 }
 
-.product-filter-container {
-    margin-bottom: 20px;
-    padding: 15px;
-}
-
 @media (min-width: 768px) {
-    .product-crud-bar-container {
-        display: flex;
-        margin-bottom: 40px;
-    }
+  .product-crud-bar-container {
+    display: flex;
+    margin-bottom: 40px;
+  }
 
-    .btn-crud-add {
-        height: 60px;
-        margin-bottom: 0;
-    }
-
-    .product-filter-container {
-        margin-left: 20px;
-        flex: 1;
-        margin-bottom: 0;
-    }
+  .btn-crud-add {
+    height: 60px;
+    margin-bottom: 0;
+  }
 }
