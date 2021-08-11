@@ -97,8 +97,8 @@ const Form = () => {
                                             options={selectCategories}
                                             classNamePrefix="product-crud-select"
                                             isMulti
-                                            getOptionLabel={(cateogry: Category) => cateogry.name}
-                                            getOptionValue={(cateogry: Category) => String(cateogry.id)}
+                                            getOptionLabel={(category: Category) => category.name}
+                                            getOptionValue={(category: Category) => String(category.id)}
                                         />
                                     )}
                                 />
