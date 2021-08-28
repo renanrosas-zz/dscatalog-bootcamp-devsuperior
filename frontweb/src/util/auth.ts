@@ -1,5 +1,5 @@
-import { Role } from "types/role";
-import { getTokenData } from "./token";
+import { Role } from 'types/role';
+import { getTokenData } from './token';
 
 export const isAuthenticated = (): boolean => {
   const tokenData = getTokenData();
@@ -15,7 +15,12 @@ export const hasAnyRoles = (roles: Role[]) => {
   const tokenData = getTokenData();
 
   if (tokenData !== undefined) {
-    return roles.some((role) => tokenData.authorities.includes(role));
+    for (var i = 0; i < roles.length; i++) {
+      if (tokenData.authorities.includes(roles[i])) {
+        return true;
+      }
+    }
+    //return roles.some((role) => tokenData.authorities.includes(role));
   }
   return false;
 };
