@@ -78,4 +78,40 @@ describe('Product form create tests', () => {
         });
 
     });
+
+    test('should clear validation messages when filling out the form correctly', async () => {
+
+        render(
+            <Router history={history}>
+                <Form />
+            </Router>
+
+        );
+
+        const submitButton = screen.getByRole('button', { name: /salvar/i })
+
+        userEvent.click(submitButton);
+
+        await waitFor(() => {
+            const messages = screen.getAllByText('Campo obrigatório');
+            expect(messages).toHaveLength(5);
+        });
+
+        const nameInput = screen.getByTestId("name");
+        const priceInput = screen.getByTestId("price");
+        const imgUrlInput = screen.getByTestId("imgUrl");
+        const descriptionInput = screen.getByTestId("description");
+        const categoriesInput = screen.getByLabelText("Categorias");
+
+        await selectEvent.select(categoriesInput, ['Eletrônicos', 'Computadores']);
+        userEvent.type(nameInput, 'Computador');
+        userEvent.type(priceInput, '5000.12');
+        userEvent.type(imgUrlInput, 'https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/1-big.jpg');
+        userEvent.type(descriptionInput, 'Computador muito bom');
+
+        await waitFor(() => {
+            const messages = screen.queryAllByText('Campo obrigatório');
+            expect(messages).toHaveLength(0);
+        });
+    });
 });
