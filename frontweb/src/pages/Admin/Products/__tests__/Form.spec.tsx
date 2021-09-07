@@ -24,7 +24,7 @@ describe('Product form create tests', () => {
         })
     })
 
-    test('Should render Form', async () => {
+    test('should show toast and redirect when submit form correctly', async () => {
 
         render(
             <Router history={history}>
@@ -40,7 +40,7 @@ describe('Product form create tests', () => {
         const descriptionInput = screen.getByTestId("description");
         const categoriesInput = screen.getByLabelText("Categorias");
 
-        const submitButton = screen.getByRole('button', { name: /salvar/i})
+        const submitButton = screen.getByRole('button', { name: /salvar/i })
 
         await selectEvent.select(categoriesInput, ['Eletrônicos', 'Computadores']);
         userEvent.type(nameInput, 'Computador');
@@ -56,6 +56,26 @@ describe('Product form create tests', () => {
         })
 
         expect(history.location.pathname).toEqual('/admin/products');
-    
+
+    });
+
+    test('should show 5 validation messages when just clicking submit', async () => {
+
+        render(
+            <Router history={history}>
+                <Form />
+            </Router>
+
+        );
+
+        const submitButton = screen.getByRole('button', { name: /salvar/i })
+
+        userEvent.click(submitButton);
+
+        await waitFor(() => {
+            const messages = screen.getAllByText('Campo obrigatório');
+            expect(messages).toHaveLength(5);
+        });
+
     });
 });
